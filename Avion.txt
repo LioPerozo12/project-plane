@@ -1,7 +1,3 @@
-AVH,SanCristobal,ocupado
-30,909,Jesus
-WSAD
-SanCristobal,disponible,30
-001,JesusPaul
-ZZZ,Caracas
-disponible,30,sos
+AVH,SanCristobal,disponible,50,123,Lio
+AVH,Caracas,disponible,50,123,Lio
+AVH,Caracas,disponible,70,123,lio

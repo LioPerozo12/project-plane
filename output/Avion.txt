@@ -1,0 +1,3 @@
+AVH,SanCristobal,disponible,50,123,Lio
+AVH,Caracas,disponible,50,123,Lio
+AVH,Caracas,disponible,70,123,lio

@@ -188,6 +188,28 @@ public:
         rename("temp.txt", "Avion.txt");
     }
 
+    void FinalizarVuelo(string idAvion, string ciudadDestino)
+    {
+        ifstream archivo("Avion.txt");
+        ofstream temporal("temp.txt");
+
+        string codigo, capacidad,estado, ciudadActual,id,nombre;
+        while (getline(archivo, codigo, ',') && getline(archivo, ciudadActual, ',') && getline(archivo,estado,',') && getline(archivo, capacidad, ',') && getline(archivo, id, ',') && getline(archivo, nombre))
+        {
+            if (codigo == idAvion)
+            {
+                estado = "disponible";
+                ciudadActual = ciudadDestino;
+            }
+            temporal << codigo << "," << ciudadActual << "," << estado << "," << ciudadActual << "," << id << "," <<nombre << "\n";
+        }
+
+        archivo.close();
+        temporal.close();
+        remove("Avion.txt");
+        rename("temp.txt", "Avion.txt");
+    }
+
 private:
     void MostrarAviones()
     {

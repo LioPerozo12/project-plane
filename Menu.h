@@ -6,6 +6,7 @@
 #include "AvionController.h"
 #include "CiudadController.h"
 #include "VueloController.h"
+#include "SistemaVuelos.h"
 
 using namespace std;
 
@@ -16,9 +17,11 @@ private:
     AvionController avion;
     CiudadController ciudad;
     VueloController vuelo;
+    SistemaVuelos sistemaVuelos;
     public:
     void MenuPrincipal()
     {
+        sistemaVuelos.distribuirAviones();
         do
         {
             system("cls");
@@ -104,12 +107,23 @@ private:
             case 1:
                 vuelo.comprarPasaje();
                 break;
-            case 2:
-                cout << "Seleccionar Flota" << endl;
+            case 2: {
+                string ciudadOrigen;
+                cout << "Ingrese ciudad origen: ";
+                cin >> ciudadOrigen;
+                sistemaVuelos.seleccionarAvion(ciudadOrigen);
                 break;
-            case 3:
-                cout << "Finalizar Traslado" << endl;
+            }
+            case 3: {
+                string idAvion;
+                string ciudadDestino;
+                cout << "ID avion: ";
+                cin >> idAvion;
+                cout << "Ciudad destino: ";
+                cin >> ciudadDestino;
+                sistemaVuelos.finalizarVuelo(idAvion, ciudadDestino);
                 break;
+            }
             case 0:
                 cout << "Volviendo al menu principal..." << endl;
                 break;
